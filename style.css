@@ -1,0 +1,140 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.main_box {
+  background: url("photo (1).jpg") center / cover no-repeat;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.btn_one {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  z-index: 30;
+}
+.btn_one label {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+.btn_one label:hover { transform: scale(1.15); transition: .15s; }
+
+
+.sidebar_menu {
+  position: fixed;
+  top: 0;
+  left: -300px;           
+  width: 300px;
+  height: 100vh;
+  z-index: 40;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(8px);         
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  transition: left 0.32s cubic-bezier(.2,.9,.2,1);
+  padding: 18px 18px 60px 18px;
+  color: white;
+}
+
+
+.sidebar_menu .logo a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+
+.sidebar_menu .btn_two {
+  position: absolute;
+  top: 18px;
+  right: 14px;
+  z-index: 50;
+}
+.sidebar_menu .btn_two i {
+  color: #bdbdbd;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;                 
+  transition: opacity .25s, transform .15s;
+}
+.sidebar_menu .btn_two i:hover { transform: scale(1.08); }
+
+
+.sidebar_menu .menu {
+  margin-top: 80px;
+}
+.sidebar_menu .menu ul { list-style: none; }
+.sidebar_menu .menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  margin: 6px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background .18s, transform .12s;
+}
+.sidebar_menu .menu li:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateX(6px);
+}
+
+
+.sidebar_menu .menu i {
+  width: 28px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.sidebar_menu .menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+
+.sidebar_menu .social_media {
+  position: absolute;
+  bottom: 18px;
+  left: 22%;
+  display: flex;
+  gap: 12px;
+}
+.sidebar_menu .social_media a { color: white; opacity: .6; font-size: 18px; transition: opacity .15s, transform .15s; }
+.sidebar_menu .social_media a:hover { opacity: 1; transform: scale(1.15); }
+
+
+#check { display: none; }
+
+
+#check:checked ~ .sidebar_menu {
+  left: 0;
+}
+
+
+#check:checked ~ .btn_one label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+#check:checked ~ .sidebar_menu .btn_two i {
+  opacity: 1;
+}
+
+
+@media (max-width: 420px) {
+  .sidebar_menu { width: 260px; left: -260px; }
+  #check:checked ~ .sidebar_menu { left: 0; }
+}
